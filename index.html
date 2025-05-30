@@ -1023,5 +1023,26 @@
             </div>
         </div>
     </div>
+    <script>
+        const teamFilter = document.getElementById('teamFilter');
+        const games = document.querySelectorAll('.game');
+      
+        teamFilter.addEventListener('change', () => {
+          const selectedTeam = teamFilter.value.toLowerCase();
+      
+          games.forEach(game => {
+            // Get the team names text content and lowercase it
+            const teams = Array.from(game.querySelectorAll('.team'))
+                               .map(t => t.textContent.toLowerCase());
+      
+            // Show the game if "all" is selected or if any team matches selected team
+            if (selectedTeam === 'all' || teams.includes(selectedTeam)) {
+              game.style.display = '';
+            } else {
+              game.style.display = 'none';
+            }
+          });
+        });
+      </script>
 </body>
 </html>
