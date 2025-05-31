@@ -1028,21 +1028,43 @@
         const games = document.querySelectorAll('.game');
       
         teamFilter.addEventListener('change', () => {
-          const selectedTeam = teamFilter.value.toLowerCase();
-      
-          games.forEach(game => {
-            // Get the team names text content and lowercase it
-            const teams = Array.from(game.querySelectorAll('.team'))
-                               .map(t => t.textContent.toLowerCase());
-      
-            // Show the game if "all" is selected or if any team matches selected team
-            if (selectedTeam === 'all' || teams.includes(selectedTeam)) {
-              game.style.display = '';
-            } else {
-              game.style.display = 'none';
-            }
-          });
-        });
+  const selectedTeam = teamFilter.value.toLowerCase();
+
+  games.forEach(game => {
+    // Get the team names text content and lowercase it
+    const teams = Array.from(game.querySelectorAll('.team'))
+                       .map(t => t.textContent.toLowerCase());
+
+    // Show the game if "all" is selected or if any team matches selected team
+    if (selectedTeam === 'all' || teams.includes(selectedTeam)) {
+      game.style.display = '';
+    } else {
+      game.style.display = 'none';
+    }
+  });
+
+  // Hide empty day sections
+  const daySections = document.querySelectorAll('.day-section');
+  daySections.forEach(daySection => {
+    const visibleGames = daySection.querySelectorAll('.game:not([style*="display: none"])');
+    if (visibleGames.length === 0) {
+      daySection.style.display = 'none';
+    } else {
+      daySection.style.display = '';
+    }
+  });
+
+  // Hide empty week sections
+  const weekSections = document.querySelectorAll('.week-section');
+  weekSections.forEach(weekSection => {
+    const visibleDays = weekSection.querySelectorAll('.day-section:not([style*="display: none"])');
+    if (visibleDays.length === 0) {
+      weekSection.style.display = 'none';
+    } else {
+      weekSection.style.display = '';
+    }
+  });
+});
       </script>
 </body>
 </html>
