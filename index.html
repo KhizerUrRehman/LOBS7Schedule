@@ -134,6 +134,22 @@
         .day-section:last-child {
             border-bottom: none;
         }
+        .day-section,
+.week-section {
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    overflow: hidden;
+}
+
+.day-section.collapsed,
+.week-section.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
         
         .day-header {
             background: linear-gradient(90deg, #f8f9ff, #fff);
@@ -1041,13 +1057,13 @@
             <a href="https://www.instagram.com/league.of.basketball/" target="_blank" 
                style="text-decoration:none; margin-right: 20px;">
                 <button style="padding: 10px 20px; font-size: 1rem; font-weight: bold; background: #E1306C; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Follow Us on Instagram
+                    Follow Us on Instagram!
                 </button>
             </a>
             <a href="https://www.youtube.com/@league.of.basketball" target="_blank" 
                style="text-decoration:none;">
                 <button style="padding: 10px 20px; font-size: 1rem; font-weight: bold; background: #FF0000; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Subscribe to our YouTube
+                    Subscribe to our YouTube!
                 </button>
             </a>
         </div>
@@ -1086,17 +1102,24 @@ function updateGameVisibility() {
         }
     });
 
-    const daySections = document.querySelectorAll('.day-section');
     daySections.forEach(daySection => {
-        const visibleGames = daySection.querySelectorAll('.game:not(.hidden)');
-        daySection.style.display = visibleGames.length ? '' : 'none';
-    });
+    const visibleGames = daySection.querySelectorAll('.game:not(.hidden)');
+    if (visibleGames.length) {
+        daySection.classList.remove('collapsed');
+    } else {
+        daySection.classList.add('collapsed');
+    }
+});
 
-    const weekSections = document.querySelectorAll('.week-section');
-    weekSections.forEach(weekSection => {
-        const visibleDays = weekSection.querySelectorAll('.day-section:not([style*="display: none"])');
-        weekSection.style.display = visibleDays.length ? '' : 'none';
-    });
+weekSections.forEach(weekSection => {
+    const visibleDays = weekSection.querySelectorAll('.day-section:not(.collapsed)');
+    if (visibleDays.length) {
+        weekSection.classList.remove('collapsed');
+    } else {
+        weekSection.classList.add('collapsed');
+    }
+});
+
 }
 
     
