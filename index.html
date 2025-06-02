@@ -134,23 +134,21 @@
         .day-section:last-child {
             border-bottom: none;
         }
-        .day-section, .week-section {
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  overflow: hidden;
-  max-height: 1000px; /* adjust if needed */
-  opacity: 1;
+        .day-section,
+.week-section {
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    overflow: hidden;
 }
 
 .day-section.collapsed,
 .week-section.collapsed {
     max-height: 0;
     opacity: 0;
-    padding: 0 !important;
-    margin: 0 !important;
+    pointer-events: none;
+    padding: 0;
+    margin: 0;
     border: none;
 }
-
-
 
         
         .day-header {
@@ -1108,10 +1106,8 @@ function updateGameVisibility() {
     const visibleGames = daySection.querySelectorAll('.game:not(.hidden)');
     if (visibleGames.length) {
         daySection.classList.remove('collapsed');
-        daySection.style.maxHeight = daySection.scrollHeight + "px";
     } else {
         daySection.classList.add('collapsed');
-        daySection.style.maxHeight = "0px";
     }
 });
 
@@ -1119,14 +1115,10 @@ weekSections.forEach(weekSection => {
     const visibleDays = weekSection.querySelectorAll('.day-section:not(.collapsed)');
     if (visibleDays.length) {
         weekSection.classList.remove('collapsed');
-        weekSection.style.maxHeight = weekSection.scrollHeight + "px";
     } else {
         weekSection.classList.add('collapsed');
-        weekSection.style.maxHeight = "0px";
     }
 });
-
-
 
 }
 
