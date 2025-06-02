@@ -328,6 +328,10 @@
               <option value="Void">Void</option>
             </select>
           </div>
+          <div style="text-align:center; margin-bottom: 1rem;">
+            <input type="checkbox" id="hideCompleted" style="margin-right:8px;">
+            <label for="hideCompleted" style="font-weight:600; font-size:1.1rem;">Hide Completed Games</label>
+          </div>
         <!-- Week 1 -->
         <div class="week-section">
             <div class="week-header">
@@ -1065,6 +1069,42 @@
     }
   });
 });
+
+const hideCompletedCheckbox = document.getElementById('hideCompleted');
+const allGames = document.querySelectorAll('.game');
+
+hideCompletedCheckbox.addEventListener('change', () => {
+  const now = new Date();
+  allGames.forEach(game => {
+    const daySection = game.closest('.day-section');
+    const dateText = daySection.querySelector('.day-date').textContent.trim();
+    const timeText = game.querySelector('.game-time').textContent.trim();
+
+    // Combine date and time and parse
+    const dateTime = new Date(`${dateText} ${timeText}`);
+
+    if (hideCompletedCheckbox.checked && dateTime < now) {
+      game.style.display = 'none';
+    } else {
+      game.style.display = '';
+    }
+  });
+
+  // Hide empty day sections
+  const daySections = document.querySelectorAll('.day-section');
+  daySections.forEach(daySection => {
+    const visibleGames = daySection.querySelectorAll('.game:not([style*="display: none"])');
+    daySection.style.display = visibleGames.length ? '' : 'none';
+  });
+
+  // Hide empty week sections
+  const weekSections = document.querySelectorAll('.week-section');
+  weekSections.forEach(weekSection => {
+    const visibleDays = weekSection.querySelectorAll('.day-section:not([style*="display: none"])');
+    weekSection.style.display = visibleDays.length ? '' : 'none';
+  });
+});
+
       </script>
 </body>
 </html>
