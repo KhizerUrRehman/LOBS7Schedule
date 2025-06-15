@@ -1068,10 +1068,8 @@
                 }
     
                 // Filter by completion
-                console.log("now",now,dateTime,dateTime.getUTCHours)
-                console.log("2",dateTime.getUTCHours(dateTime.getUTCHours()+5))
                 
-                if (hideCompleted && dateTime.setUTCHours(dateTime.getUTCHours()+5) < now) {
+                if (hideCompleted && dateTime.setUTCHours(dateTime.getUTCHours()+2) < now) {
                     visible = false;
                 }
                 
