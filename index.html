@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>League Of Basketball Season 8 - Schedule</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -20,15 +21,15 @@
             color: #333;
             line-height: 1.6;
         }
-        
+
         .game-score {
-             font-size: 1rem;
-             font-weight: 600;
-             color: #333;
-             text-align: center;
-             margin-top: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-top: 0.5rem;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -40,7 +41,7 @@
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 3rem;
@@ -48,7 +49,7 @@
             border-bottom: 3px solid #667eea;
             position: relative;
         }
-        
+
         .header::after {
             content: '';
             position: absolute;
@@ -60,7 +61,7 @@
             background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
             border-radius: 2px;
         }
-        
+
         .league-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 3.5rem;
@@ -73,7 +74,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-        
+
         .season-subtitle {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
@@ -81,7 +82,7 @@
             font-weight: 400;
             letter-spacing: 1px;
         }
-        
+
         .week-section {
             margin-bottom: 3rem;
             background: white;
@@ -90,7 +91,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(102, 126, 234, 0.1);
         }
-        
+
         .week-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -103,13 +104,13 @@
             justify-content: center;
             gap: 1rem;
         }
-        
+
         .lob-logo {
             width: 50px;
             height: 50px;
             opacity: 0.9;
         }
-        
+
         .week-header::before {
             content: '';
             position: absolute;
@@ -117,15 +118,20 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 3s infinite;
         }
-        
+
         @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
-        
+
         .week-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
@@ -134,15 +140,15 @@
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        
+
         .day-section {
             border-bottom: 1px solid #eee;
         }
-        
+
         .day-section:last-child {
             border-bottom: none;
         }
-        
+
         .day-header {
             background: linear-gradient(90deg, #f8f9ff, #fff);
             padding: 1rem 2rem;
@@ -151,7 +157,7 @@
             align-items: center;
             gap: 1rem;
         }
-        
+
         .day-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
@@ -160,18 +166,18 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .day-date {
             font-size: 1.1rem;
             color: #666;
             font-weight: 500;
         }
-        
+
         .games-container {
             padding: 1.5rem 2rem;
             background: #fafbff;
         }
-        
+
         .game {
             display: flex;
             align-items: center;
@@ -186,7 +192,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .game::before {
             content: '';
             position: absolute;
@@ -196,16 +202,16 @@
             height: 100%;
             background: #667eea;
         }
-        
+
         .game:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
         }
-        
+
         .game:last-child {
             margin-bottom: 0;
         }
-        
+
         .game-time {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
@@ -218,7 +224,7 @@
             min-width: 80px;
             text-align: center;
         }
-        
+
         .teams-container {
             flex: 1;
             display: flex;
@@ -227,7 +233,7 @@
             gap: 2rem;
             margin: 0 2rem;
         }
-        
+
         .team {
             font-size: 1.1rem;
             font-weight: 600;
@@ -240,24 +246,24 @@
             text-align: center;
             position: relative;
         }
-        
+
         .vs-separator {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             color: #ff6b6b;
             font-size: 1.2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .basketball-icon {
             display: none;
         }
-        
+
         @media print {
             body {
                 background: white;
             }
-            
+
             .container {
                 background: white;
                 box-shadow: none;
@@ -265,49 +271,50 @@
                 margin: 0;
                 padding: 1rem;
             }
-            
+
             .week-section {
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
-            
+
             .game:hover {
                 transform: none;
             }
-            
+
             .week-header::before {
                 animation: none;
             }
         }
-        
+
         @media (max-width: 768px) {
             .league-title {
                 font-size: 2.5rem;
             }
-            
+
             .container {
                 padding: 1rem;
                 margin: 1rem;
             }
-            
+
             .teams-container {
                 flex-direction: column;
                 gap: 0.5rem;
                 margin: 0 1rem;
             }
-            
+
             .game {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
             }
-            
+
             .vs-separator {
                 display: none;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -336,795 +343,886 @@
                 <option value="Void">Void</option>
             </select>
             </select>
-          </div>
-          <div style="text-align:center; margin-bottom: 1rem;">
+        </div>
+        <div style="text-align:center; margin-bottom: 1rem;">
             <input type="checkbox" id="hideCompleted" style="margin-right:8px;">
             <label for="hideCompleted" style="font-weight:600; font-size:1.1rem;">Hide Completed Games</label>
-          </div>
-          <div style="text-align: center; margin-top: 1rem; margin-bottom: 1rem">
-            <a href="https://www.instagram.com/league.of.basketball/" target="_blank" 
-               style="text-decoration:none; margin-right: 20px;">
-                <button style="padding: 10px 20px; font-size: 1rem; font-weight: bold; background: #E1306C; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Follow Us on Instagram
-                </button>
+        </div>
+        <div style="text-align: center; margin-top: 1rem; margin-bottom: 1rem">
+            <a href="https://www.instagram.com/league.of.basketball/" target="_blank" style="text-decoration:none; margin-right: 20px;">
+                <button style="padding: 10px 20px; font-size: 1rem; font-weight: bold; background: #E1306C; color: white; border: none; border-radius: 5px; cursor: pointer;"> Follow Us on Instagram </button>
             </a>
-            <a href="https://www.youtube.com/@league.of.basketball" target="_blank" 
-               style="text-decoration:none;">
-                <button style="padding: 10px 20px; font-size: 1rem; font-weight: bold; background: #FF0000; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Subscribe to our YouTube
-                </button>
+            <a href="https://www.youtube.com/@league.of.basketball" target="_blank" style="text-decoration:none;">
+                <button style="padding: 10px 20px; font-size: 1rem; font-weight: bold; background: #FF0000; color: white; border: none; border-radius: 5px; cursor: pointer;"> Subscribe to our YouTube </button>
             </a>
         </div>
-
         <!-- Week 1 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 1</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 1</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">November 7, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Askari Alphas</div><div class="vs-separator">VS</div><div class="team">Eastside Invaders</div>
+                            <div class="team">Askari Alphas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Eastside Invaders</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mavericks</div><div class="vs-separator">VS</div><div class="team">Ronins</div>
+                            <div class="team">Mavericks</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Ronins</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">November 8, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Rampage</div><div class="vs-separator">VS</div><div class="team">T6</div>
+                            <div class="team">Rampage</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">T6</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Raiders</div><div class="vs-separator">VS</div><div class="team">Sabers</div>
+                            <div class="team">Raiders</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Sabers</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">23rd Street Ballerz</div><div class="vs-separator">VS</div><div class="team">Malir Trojans</div>
+                            <div class="team">23rd Street Ballerz</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Malir Trojans</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">November 9, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Omega</div><div class="vs-separator">VS</div><div class="team">Void</div>
+                            <div class="team">Omega</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Void</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mambas</div><div class="vs-separator">VS</div><div class="team">Bounce</div>
+                            <div class="team">Mambas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Bounce</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Phantom Flyers</div><div class="vs-separator">VS</div><div class="team">Backstreet Hoopers</div>
+                            <div class="team">Phantom Flyers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Backstreet Hoopers</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Week 2 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 2</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 2</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">November 14, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Eastside Invaders</div><div class="vs-separator">VS</div><div class="team">T6</div>
+                            <div class="team">Eastside Invaders</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">T6</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Askari Alphas</div><div class="vs-separator">VS</div><div class="team">Rampage</div>
+                            <div class="team">Askari Alphas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Rampage</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">November 15, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Backstreet Hoopers</div><div class="vs-separator">VS</div><div class="team">Ronins</div>
+                            <div class="team">Backstreet Hoopers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Ronins</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Bounce</div><div class="vs-separator">VS</div><div class="team">23rd Street Ballerz</div>
+                            <div class="team">Bounce</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">23rd Street Ballerz</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Omega</div><div class="vs-separator">VS</div><div class="team">Raiders</div>
+                            <div class="team">Omega</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Raiders</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">November 16, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Sabers</div><div class="vs-separator">VS</div><div class="team">Malir Trojans</div>
+                            <div class="team">Sabers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Malir Trojans</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Void</div><div class="vs-separator">VS</div><div class="team">Mambas</div>
+                            <div class="team">Void</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mambas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Phantom Flyers</div><div class="vs-separator">VS</div><div class="team">Mavericks</div>
+                            <div class="team">Phantom Flyers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mavericks</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Week 3 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 3</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 3</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">November 21, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Askari Alphas</div><div class="vs-separator">VS</div><div class="team">Backstreet Hoopers</div>
+                            <div class="team">Askari Alphas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Backstreet Hoopers</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Rampage</div><div class="vs-separator">VS</div><div class="team">Phantom Flyers</div>
+                            <div class="team">Rampage</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Phantom Flyers</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">November 22, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Sabers</div><div class="vs-separator">VS</div><div class="team">Void</div>
-                            
+                            <div class="team">Sabers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Void</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Omega</div><div class="vs-separator">VS</div><div class="team">Mambas</div>
+                            <div class="team">Omega</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mambas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mavericks</div><div class="vs-separator">VS</div><div class="team">Eastside Invaders</div>
+                            <div class="team">Mavericks</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Eastside Invaders</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">November 23, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Bounce</div><div class="vs-separator">VS</div><div class="team">Malir Trojans</div>
+                            <div class="team">Bounce</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Malir Trojans</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">23rd Street Ballerz</div><div class="vs-separator">VS</div><div class="team">Raiders</div>
+                            <div class="team">23rd Street Ballerz</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Raiders</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Ronins</div><div class="vs-separator">VS</div><div class="team">T6</div>
+                            <div class="team">Ronins</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">T6</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Week 4 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 4</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 4</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">November 28, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Phantom Flyers</div><div class="vs-separator">VS</div><div class="team">Eastside Invaders</div>
+                            <div class="team">Phantom Flyers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Eastside Invaders</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Rampage</div><div class="vs-separator">VS</div><div class="team">Backstreet Hoopers</div>
+                            <div class="team">Rampage</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Backstreet Hoopers</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">November 29, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Ronins</div><div class="vs-separator">VS</div><div class="team">Askari Alphas</div>
+                            <div class="team">Ronins</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Askari Alphas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Void</div><div class="vs-separator">VS</div><div class="team">Malir Trojans</div>
+                            <div class="team">Void</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Malir Trojans</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">T6</div><div class="vs-separator">VS</div><div class="team">Mavericks</div>
+                            <div class="team">T6</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mavericks</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">November 30, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Bounce</div><div class="vs-separator">VS</div><div class="team">Raiders</div>
+                            <div class="team">Bounce</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Raiders</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">23rd Street Ballerz</div><div class="vs-separator">VS</div><div class="team">Mambas</div>
+                            <div class="team">23rd Street Ballerz</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mambas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Sabers</div><div class="vs-separator">VS</div><div class="team">Omega</div>
+                            <div class="team">Sabers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Omega</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        
         <!-- Week 5 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 5</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 5</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">December 12, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Rampage</div><div class="vs-separator">VS</div><div class="team">Ronins</div>
+                            <div class="team">Rampage</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Ronins</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Phantom Flyers</div><div class="vs-separator">VS</div><div class="team">T6</div>
+                            <div class="team">Phantom Flyers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">T6</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">December 13, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mavericks</div><div class="vs-separator">VS</div><div class="team">Askari Alphas</div>
+                            <div class="team">Mavericks</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Askari Alphas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Sabers</div><div class="vs-separator">VS</div><div class="team">Bounce</div>
+                            <div class="team">Sabers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Bounce</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">23rd Street Ballerz</div><div class="vs-separator">VS</div><div class="team">Void</div>
+                            <div class="team">23rd Street Ballerz</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Void</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">December 14, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Eastside Invaders</div><div class="vs-separator">VS</div><div class="team">Backstreet Hoopers</div>
+                            <div class="team">Eastside Invaders</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Backstreet Hoopers</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mambas</div><div class="vs-separator">VS</div><div class="team">Raiders</div>
+                            <div class="team">Mambas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Raiders</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Omega</div><div class="vs-separator">VS</div><div class="team">Malir Trojans</div>
+                            <div class="team">Omega</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Malir Trojans</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Week 6 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 6</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 6</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">December 19, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Phantom Flyers</div><div class="vs-separator">VS</div><div class="team">Ronins</div>
+                            <div class="team">Phantom Flyers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Ronins</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Askari Alphas</div><div class="vs-separator">VS</div><div class="team">T6</div>
+                            <div class="team">Askari Alphas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">T6</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">December 20, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Eastside Invaders</div><div class="vs-separator">VS</div><div class="team">Rampage</div>
+                            <div class="team">Eastside Invaders</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Rampage</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Sabers</div><div class="vs-separator">VS</div><div class="team">Mambas</div>
+                            <div class="team">Sabers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mambas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Bounce</div><div class="vs-separator">VS</div><div class="team">Void</div>
+                            <div class="team">Bounce</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Void</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">December 21, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mavericks</div><div class="vs-separator">VS</div><div class="team">Backstreet Hoopers</div>
+                            <div class="team">Mavericks</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Backstreet Hoopers</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">23rd Street Ballerz</div><div class="vs-separator">VS</div><div class="team">Omega</div>
+                            <div class="team">23rd Street Ballerz</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Omega</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Malir Trojans</div><div class="vs-separator">VS</div><div class="team">Raiders</div>
+                            <div class="team">Malir Trojans</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Raiders</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Week 7 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Week 7</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Week 7</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">December 26, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Ronins</div><div class="vs-separator">VS</div><div class="team">Eastside Invaders</div>
+                            <div class="team">Ronins</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Eastside Invaders</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">T6</div><div class="vs-separator">VS</div><div class="team">Backstreet Hoopers</div>
+                            <div class="team">T6</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Backstreet Hoopers</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">December 27, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Mambas</div><div class="vs-separator">VS</div><div class="team">Malir Trojans</div>
+                            <div class="team">Mambas</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Malir Trojans</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">23rd Street Ballerz</div><div class="vs-separator">VS</div><div class="team">Sabers</div>
+                            <div class="team">23rd Street Ballerz</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Sabers</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Rampage</div><div class="vs-separator">VS</div><div class="team">Mavericks</div>
+                            <div class="team">Rampage</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Mavericks</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">December 28, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Phantom Flyers</div><div class="vs-separator">VS</div><div class="team">Askari Alphas</div>
+                            <div class="team">Phantom Flyers</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Askari Alphas</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Omega</div><div class="vs-separator">VS</div><div class="team">Bounce</div>
+                            <div class="team">Omega</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Bounce</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Void</div><div class="vs-separator">VS</div><div class="team">Raiders</div>
+                            <div class="team">Void</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Raiders</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <!-- Week 8 -->
         <div class="week-section">
-            <div class="week-header"><h2 class="week-title">Play-Ins & All Star</h2></div>
-
+            <div class="week-header">
+                <h2 class="week-title">Play-Ins & All Star</h2>
+            </div>
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Friday</span><span class="day-date">January 2, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">C2 Seed#2</div><div class="vs-separator">VS</div><div class="team">C2 Seed#5</div>
+                            <div class="team">C2 Seed#2</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">C2 Seed#5</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">C2 Seed#3</div><div class="vs-separator">VS</div><div class="team">C2 Seed#4</div>
+                            <div class="team">C2 Seed#3</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">C2 Seed#4</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">January 3, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">Rising Stars A</div><div class="vs-separator">VS</div><div class="team">Rising Stars B</div>
+                            <div class="team">Rising Stars A</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">Rising Stars B</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">WLOB Stars A</div><div class="vs-separator">VS</div><div class="team">WLOB Stars B</div>
+                            <div class="team">WLOB Stars A</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">WLOB Stars B</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">LOB Stars A</div><div class="vs-separator">VS</div><div class="team">LOB Stars B</div>
+                            <div class="team">LOB Stars A</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB Stars B</div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="day-section">
                 <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">January 4, 2025</span></div>
                 <div class="games-container">
                     <div class="game">
                         <div class="game-time">5:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">WLOB Seed#1</div><div class="vs-separator">VS</div><div class="team">WLOB Seed#4</div>
+                            <div class="team">WLOB Seed#1</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">WLOB Seed#4</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">7:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">WLOB Seed#2</div><div class="vs-separator">VS</div><div class="team">WLOB Seed#3</div>
+                            <div class="team">WLOB Seed#2</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">WLOB Seed#3</div>
                         </div>
                     </div>
                     <div class="game">
                         <div class="game-time">9:00 PM</div>
                         <div class="teams-container">
-                            <div class="team">PlayIn Winner#1</div><div class="vs-separator">VS</div><div class="team">PlayIn Winner#2</div>
+                            <div class="team">PlayIn Winner#1</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">PlayIn Winner#2</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-
-  <!-- Week 9 -->
-  <div class="week-section">
-    <div class="week-header"><h2 class="week-title">LOB QFs</h2></div>
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Wednesday</span><span class="day-date">January 7, 2025</span></div>
-        <div class="games-container">
-            <div class="game">
-                <div class="game-time">8:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">WLOB Semi#1 Winner</div><div class="vs-separator">VS</div><div class="team">WLOB Semi#2 Winner</div>
+        <!-- Week 9 -->
+        <div class="week-section">
+            <div class="week-header">
+                <h2 class="week-title">LOB QFs</h2>
+            </div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Wednesday</span><span class="day-date">January 7, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">8:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">WLOB Semi#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">WLOB Semi#2 Winner</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          
-        </div>
-    </div>
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Friday</span><span class="day-date">January 9, 2025</span></div>
-        <div class="games-container">
-            <div class="game">
-                <div class="game-time">7:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">WLOB Semi#1 Winner</div><div class="vs-separator">VS</div><div class="team">WLOB Semi#2 Winner</div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Friday</span><span class="day-date">January 9, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">7:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">WLOB Semi#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">WLOB Semi#2 Winner</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          
-        </div>
-    </div>
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">January 10, 2025</span></div>
-        <div class="games-container">
-            
-            <div class="game">
-                <div class="game-time">6:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB C1 Seed#1</div><div class="vs-separator">VS</div><div class="team">LOB C2 Seed#1</div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">January 10, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">6:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB C1 Seed#1</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB C2 Seed#1</div>
+                        </div>
+                    </div>
+                    <div class="game">
+                        <div class="game-time">8:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB C1 Seed#2</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB C2 Seed#2</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="game">
-                <div class="game-time">8:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB C1 Seed#2</div><div class="vs-separator">VS</div><div class="team">LOB C2 Seed#2</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">January 11, 2025</span></div>
-        <div class="games-container">
-            
-            <div class="game">
-                <div class="game-time">5:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">WLOB Semi#1 Winner</div><div class="vs-separator">VS</div><div class="team">WLOB Semi#2 Winner</div>
-                </div>
-            </div>
-            <div class="game">
-                <div class="game-time">7:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB C1 Seed#3</div><div class="vs-separator">VS</div><div class="team">LOB C1 Seed#6</div>
-                </div>
-            </div>
-            <div class="game">
-                <div class="game-time">9:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB C1 Seed#4</div><div class="vs-separator">VS</div><div class="team">LOB C1 Seed#5</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-  <!-- Week 10 -->
-  <div class="week-section">
-    <div class="week-header"><h2 class="week-title">LOB SFs</h2></div>
-
-    
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">January 17, 2025</span></div>
-        <div class="games-container">
-            
-            <div class="game">
-                <div class="game-time">6:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB QF#1 Winner</div><div class="vs-separator">VS</div><div class="team">LOB QF#4 Winner</div>
-                </div>
-            </div>
-            <div class="game">
-                <div class="game-time">8:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB QF#2 Winner</div><div class="vs-separator">VS</div><div class="team">LOB QF#3 Winner</div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">January 11, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">5:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">WLOB Semi#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">WLOB Semi#2 Winner</div>
+                        </div>
+                    </div>
+                    <div class="game">
+                        <div class="game-time">7:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB C1 Seed#3</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB C1 Seed#6</div>
+                        </div>
+                    </div>
+                    <div class="game">
+                        <div class="game-time">9:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB C1 Seed#4</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB C1 Seed#5</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-   </div>
-
-  <!-- Week 11 -->
-  <div class="week-section">
-    <div class="week-header"><h2 class="week-title">LOB Finals</h2></div>
-
-    
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Wednesday</span><span class="day-date">January 21, 2025</span></div>
-        <div class="games-container">
-            
-            <div class="game">
-                <div class="game-time">8:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB SF#1 Winner</div><div class="vs-separator">VS</div><div class="team">LOB SF#2 Winner</div>
+        <!-- Week 10 -->
+        <div class="week-section">
+            <div class="week-header">
+                <h2 class="week-title">LOB SFs</h2>
+            </div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Saturday</span><span class="day-date">January 17, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">6:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB QF#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB QF#4 Winner</div>
+                        </div>
+                    </div>
+                    <div class="game">
+                        <div class="game-time">8:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB QF#2 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB QF#3 Winner</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div>
-    </div>
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Friday</span><span class="day-date">January 23, 2025</span></div>
-        <div class="games-container">
-            
-            <div class="game">
-                <div class="game-time">8:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB SF#1 Winner</div><div class="vs-separator">VS</div><div class="team">LOB SF#2 Winner</div>
+        <!-- Week 11 -->
+        <div class="week-section">
+            <div class="week-header">
+                <h2 class="week-title">LOB Finals</h2>
+            </div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Wednesday</span><span class="day-date">January 21, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">8:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB SF#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB SF#2 Winner</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-        </div>
-    </div>
-
-    <div class="day-section">
-        <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">January 25, 2025</span></div>
-        <div class="games-container">
-            
-            <div class="game">
-                <div class="game-time">8:00 PM</div>
-                <div class="teams-container">
-                    <div class="team">LOB SF#1 Winner</div><div class="vs-separator">VS</div><div class="team">LOB SF#2 Winner</div>
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Friday</span><span class="day-date">January 23, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">8:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB SF#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB SF#2 Winner</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+            <div class="day-section">
+                <div class="day-header"><span class="day-name">Sunday</span><span class="day-date">January 25, 2025</span></div>
+                <div class="games-container">
+                    <div class="game">
+                        <div class="game-time">8:00 PM</div>
+                        <div class="teams-container">
+                            <div class="team">LOB SF#1 Winner</div>
+                            <div class="vs-separator">VS</div>
+                            <div class="team">LOB SF#2 Winner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-   </div>
-
     <script>
         const teamFilter = document.getElementById('teamFilter');
         const hideCompletedCheckbox = document.getElementById('hideCompleted');
         const games = document.querySelectorAll('.game');
-    
+
         function updateGameVisibility() {
             const selectedTeam = teamFilter.value.toLowerCase();
             const hideCompleted = hideCompletedCheckbox.checked;
             const now = new Date();
-    
             games.forEach(game => {
                 const daySection = game.closest('.day-section');
                 const dateText = daySection.querySelector('.day-date').textContent.trim();
                 const timeText = game.querySelector('.game-time').textContent.trim();
                 const dateTime = new Date(`${dateText} ${timeText}`);
-    
                 const teams = Array.from(game.querySelectorAll('.team')).map(t => t.textContent.toLowerCase());
-    
                 let visible = true;
-    
                 // Filter by team
                 if (selectedTeam !== 'all' && !teams.includes(selectedTeam)) {
                     visible = false;
                 }
-    
                 // Filter by completion
-                
-                if (hideCompleted && dateTime.setUTCHours(dateTime.getUTCHours()+2) < now) {
+                if (hideCompleted && dateTime.setUTCHours(dateTime.getUTCHours() + 2) < now) {
                     visible = false;
                 }
-                
-    
                 game.style.display = visible ? '' : 'none';
             });
-    
             // Hide empty day sections
             const daySections = document.querySelectorAll('.day-section');
             daySections.forEach(daySection => {
                 const visibleGames = daySection.querySelectorAll('.game:not([style*="display: none"])');
                 daySection.style.display = visibleGames.length ? '' : 'none';
             });
-    
             // Hide empty week sections
             const weekSections = document.querySelectorAll('.week-section');
             weekSections.forEach(weekSection => {
@@ -1132,10 +1230,9 @@
                 weekSection.style.display = visibleDays.length ? '' : 'none';
             });
         }
-    
         teamFilter.addEventListener('change', updateGameVisibility);
         hideCompletedCheckbox.addEventListener('change', updateGameVisibility);
     </script>
-    
 </body>
+
 </html>
